@@ -6,9 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArticleComponent } from './components/article.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
-  declarations: [AppComponent, ArticleComponent, PaginationComponent],
+  declarations: [
+    AppComponent,
+    ArticleComponent,
+    PaginationComponent,
+    SearchComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

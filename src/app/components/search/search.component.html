@@ -1,0 +1,11 @@
+<div class="search">
+  <form (submit)="$event.preventDefault(); changeSearchRequest.emit(this.req)">
+    <img class="search__img" src="/assets/search.svg" />
+    <input
+      class="search__input"
+      placeholder="Search..."
+      (keyup)="changeReq($event)"
+    />
+    <button class="search__button">SEARCH</button>
+  </form>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PostService } from '../services/post.service';
 
 @Component({
@@ -7,13 +7,21 @@ import { PostService } from '../services/post.service';
   styleUrls: ['./article.component.sass'],
 })
 export class ArticleComponent implements OnInit {
+  @Input() currentPage: number = 1;
+  @Input() searchRequest: string = 'search';
   data: any;
   constructor(private myPostService: PostService) {}
   title = 'testTask';
 
   ngOnInit(): void {
-    this.myPostService.getPosts().subscribe((data) => {
-      this.data = data;
-    });
+    console.log('bro');
+    this.myPostService
+      .getPosts(this.currentPage, this.searchRequest)
+      .subscribe((data) => {
+        this.data = data;
+      });
+  }
+  ngOnChanges(): void {
+    this.ngOnInit();
   }
 }

@@ -11,7 +11,10 @@
           </li>
         </ul>
       </nav>
-      <app-article></app-article>
+      <app-search
+        (changeSearchRequest)="changeSearchRequest($event)"
+      ></app-search>
+      <app-article [currentPage]="currentPage" [searchRequest]="searchRequest"></app-article>
       <app-pagination
         [currentPage]="currentPage"
         (changePage)="changePage($event)"

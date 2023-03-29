@@ -1,6 +1,10 @@
 <div class="article" *ngFor="let post of data.articles">
   <div class="article__main">
-    <img class="article__img" src="{{ post.urlToImage }}" />
+    <img
+      class="article__img"
+      [src]="post.urlToImage"
+      onError="this.src='/assets/ruslan.jpg'"
+    />
     <div class="article__info">
       <h3 class="article__title">{{ post.title }}</h3>
       <p class="article__text">

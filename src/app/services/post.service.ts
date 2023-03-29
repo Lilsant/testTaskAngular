@@ -6,9 +6,9 @@ import { Injectable } from '@angular/core';
 })
 export class PostService {
   constructor(private http: HttpClient) {}
-  getPosts() {
+  getPosts(pageNumber: number, searchRequest: string) {
     return this.http.get(
-      'https://newsapi.org/v2/everything?q=Apple&apiKey=afe650beed5a403da79deaa9089bc6e4'
+      `https://newsapi.org/v2/everything?q=${searchRequest}&pageSize=4&page=${pageNumber}&apiKey=afe650beed5a403da79deaa9089bc6e4`
     );
   }
 }
