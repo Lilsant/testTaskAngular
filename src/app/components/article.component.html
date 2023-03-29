@@ -1,0 +1,17 @@
+<div class="article" *ngFor="let post of data.articles">
+  <div class="article__main">
+    <img class="article__img" src="{{ post.urlToImage }}" />
+    <div class="article__info">
+      <h3 class="article__title">{{ post.title }}</h3>
+      <p class="article__text">
+        {{ post.description }}
+      </p>
+      <div class="article__button-cont">
+        <span class="article__date">{{ post.publishedAt }}</span>
+        <button class="article__button">
+          READ MORE <img class="article__button-icon" src="/assets/arrow.svg" />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
