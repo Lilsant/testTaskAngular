@@ -10,6 +10,7 @@ export class AppComponent {
   currentPage: number = 1;
   searchRequest: string = 'apple';
   isEverything: boolean = false;
+  totalPagesCount: number = 1;
   category: string = 'general';
   country: string = 'us';
   changePage(page: number): void {
@@ -18,12 +19,17 @@ export class AppComponent {
   }
   changeSearchRequest(request: string): void {
     this.searchRequest = request;
-    console.log(this.searchRequest);
+    this.changePage(1);
   }
   changeCurrentCategory(category: string) {
     this.category = category;
+    this.changePage(1);
   }
   changeCurrentCountry(country: string) {
     this.country = country;
+    this.changePage(1);
+  }
+  setTotalPagesCount(count: number) {
+    this.totalPagesCount = count;
   }
 }
