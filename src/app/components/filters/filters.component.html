@@ -1,0 +1,54 @@
+<div class="filters">
+  <div class="filters__input">
+    <img
+    class="filters__icon"
+      [ngClass]="{
+        'filters__icon--rotated': isCategoryOpen
+      }"
+      src="/assets/expand.svg"
+    />
+    <span class="filters__text" (click)="changeCategoryVisible()">{{
+      this.category
+    }}</span>
+    <ul
+      [ngClass]="{
+        filters__list: isCategoryOpen,
+        'filters__list--disabled': !isCategoryOpen
+      }"
+    >
+      <li
+        class="filters__list-item"
+        *ngFor="let cat of categories"
+        (click)="changeCategoryValue($event)"
+      >
+        {{ cat }}
+      </li>
+    </ul>
+  </div>
+  <div class="filters__input">
+    <img
+    class="filters__icon"
+      [ngClass]="{
+        'filters__icon--rotated': isCountryOpen
+      }"
+      src="/assets/expand.svg"
+    />
+    <span class="filters__text" (click)="changeCountryVisible()">{{
+      this.country
+    }}</span>
+    <ul
+      [ngClass]="{
+        'filters__list filters__list-contry': isCountryOpen,
+        'filters__list--disabled': !isCountryOpen
+      }"
+    >
+      <li
+        class="filters__list-item"
+        *ngFor="let countr of countries"
+        (click)="changeCountryValue($event)"
+      >
+        {{ countr }}
+      </li>
+    </ul>
+  </div>
+</div>

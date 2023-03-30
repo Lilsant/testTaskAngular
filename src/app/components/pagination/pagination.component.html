@@ -1,20 +1,13 @@
 <div class="pagination">
   <ul class="pagination__list">
-    <li class="pagination__list-item" (click)="changePage.emit(currentPage)">
-      1
-    </li>
-    <li class="pagination__list-item">2</li>
-    <li class="pagination__list-item">3</li>
-    <li class="pagination__list-item">4</li>
-    <li class="pagination__list-item">5</li>
-    <li class="pagination__list-item">6</li>
-  </ul>
-  <div class="pagination__button-cont">
     <button class="pagination__button" (click)="changePage.emit(prevPage())">
-      Prev
+      <img class="pagination__button-icon pagination__button-icon--left" src="/assets/arrow.svg"/>
     </button>
+    <li class="pagination__list-item" [ngClass]="{'pagination__list-item--active' : currentPage === pageNum}" (click)="onNumberClick($event)" *ngFor="let pageNum of pages">
+      {{pageNum}}
+    </li>
+  </ul>
     <button class="pagination__button" (click)="changePage.emit(nextPage())">
-      Next
+      <img class="pagination__button-icon" src="/assets/arrow.svg"/>
     </button>
-  </div>
 </div>

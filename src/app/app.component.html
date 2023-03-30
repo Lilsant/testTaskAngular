@@ -4,21 +4,45 @@
       <nav class="app__nav">
         <ul class="app__list">
           <li class="app__list-item">
-            <a class="app__list-link">Top Headlines</a>
+            <a class="app__list-link" (click)="this.isEverything=false">Top Headlines</a>
           </li>
           <li class="app__list-item">
-            <a class="app__list-link">Everything</a>
+            <a class="app__list-link" (click)="this.isEverything=true">Everything</a>
           </li>
         </ul>
       </nav>
-      <app-search
-        (changeSearchRequest)="changeSearchRequest($event)"
-      ></app-search>
-      <app-article [currentPage]="currentPage" [searchRequest]="searchRequest"></app-article>
-      <app-pagination
-        [currentPage]="currentPage"
-        (changePage)="changePage($event)"
-      ></app-pagination>
+      <div class="app__main" *ngIf="isEverything">
+        <app-search
+          (changeSearchRequest)="changeSearchRequest($event)"
+        ></app-search>
+        <app-article
+          [currentPage]="currentPage"
+          [searchRequest]="searchRequest"
+          [isEverything]="isEverything"
+        ></app-article>
+        <app-pagination
+          [currentPage]="currentPage"
+          (changePage)="changePage($event)"
+        ></app-pagination>
+      </div>
+      <div class="app__main" *ngIf="!isEverything">
+        <app-article-filters
+          [category]="category"
+          [country]="country"
+          (changeCurrentCategory)="changeCurrentCategory($event)"
+          (changeCurrentCountry)="changeCurrentCountry($event)"
+        ></app-article-filters>
+        <app-article
+          [currentPage]="currentPage"
+          [category]="category"
+          [country]="country"
+          [isEverything]="isEverything"
+        ></app-article>
+        <app-pagination
+          [currentPage]="currentPage"
+          (changePage)="changePage($event)"
+        ></app-pagination>
+      </div>
     </div>
   </div>
 </div>
