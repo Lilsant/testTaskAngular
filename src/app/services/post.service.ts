@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class PostService {
-  apiKey: string = 'a72cfd6a8596471da14dc61002297a2c';
+  apiKey: string = 'c36c7ff39e98442f9a094f6226eb3988';
   constructor(private http: HttpClient) {}
   getPosts(pageNumber: number, searchRequest: string) {
     return this.http.get(
