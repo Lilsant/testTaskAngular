@@ -1,7 +1,8 @@
 <div class="filters">
   <div class="filters__input">
     <img
-    class="filters__icon"
+      class="filters__icon"
+      (click)="changeCategoryVisible()"
       [ngClass]="{
         'filters__icon--rotated': isCategoryOpen
       }"
@@ -27,7 +28,8 @@
   </div>
   <div class="filters__input">
     <img
-    class="filters__icon"
+      class="filters__icon"
+      (click)="changeCategoryVisible()"
       [ngClass]="{
         'filters__icon--rotated': isCountryOpen
       }"

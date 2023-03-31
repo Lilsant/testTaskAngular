@@ -15,7 +15,9 @@
           <div class="article__button-cont">
             <span class="article__date">{{ post.publishedAt }}</span>
             <button class="article__button">
-              READ MORE
+              <a class="article__link" [href]="post.url" target="_blank"
+                >READ MORE</a
+              >
               <img class="article__button-icon" src="/assets/arrow.svg" />
             </button>
           </div>
@@ -23,11 +25,15 @@
       </div>
     </div>
   </div>
-  <div *ngIf="data.articles.length === 0">НИТИВО НЕ НАЙДЕНО :CCC</div>
+  <div *ngIf="data.articles.length === 0" class="article__message">
+    <span class="article__message-text"> НИТИВО НЕ НАЙДЕНО :CCC </span>
+  </div>
 </ng-container>
-<div *ngIf="data === 'error'">
-  В ходе работы возникла ошибка! Мы уже работаем над этим!
+<div *ngIf="data === 'error'" class="article__message">
+  <span class="article__message-text">
+    В ходе работы возникла ошибка! Мы уже работаем над этим!
+  </span>
 </div>
-<div *ngIf="data === 'loading'">
-  <img class="article__loading" src="/assets/spinner.svg" />
+<div *ngIf="data === 'loading'" class="article__message">
+  <img class="article__loading-spinner" src="/assets/spinner.svg" />
 </div>

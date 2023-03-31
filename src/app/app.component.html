@@ -4,12 +4,22 @@
       <nav class="app__nav">
         <ul class="app__list">
           <li class="app__list-item">
-            <a class="app__list-link" (click)="this.isEverything = false"
+            <a
+              class="app__list-link"
+              [ngClass]="{
+                'app__list-link--active': !isEverything
+              }"
+              (click)="this.isEverything = false; this.currentPage = 1"
               >Top Headlines</a
             >
           </li>
           <li class="app__list-item">
-            <a class="app__list-link" (click)="this.isEverything = true"
+            <a
+              class="app__list-link"
+              [ngClass]="{
+                'app__list-link--active': isEverything
+              }"
+              (click)="this.isEverything = true; this.currentPage = 1"
               >Everything</a
             >
           </li>
